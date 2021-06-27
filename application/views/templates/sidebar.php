@@ -42,7 +42,11 @@
               <?php foreach ($sub as $s) : ?>
 
                 <!-- Nav Item - Dashboard -->
-                <li class="nav-item">
+                <?php if ($title==$s['title']) : ?>
+                  <li class="nav-item active">
+                <?php else : ?>
+                  <li class="nav-item">
+                <?php endif; ?>
                   <a class="nav-link" href="<?= base_url($s['url']);  ?>">
                     <i class="<?= $s['icon']; ?>"></i>
                     <span><?= $s['title']; ?></span></a>
