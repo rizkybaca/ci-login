@@ -102,4 +102,11 @@ class Auth extends CI_Controller
 		redirect('auth');
 	}
 
+	public function blocked()
+	{
+		$data['title']='My Profile';
+		$this->load->view('auth/blocked',$data);
+		
+	}
+
 }
