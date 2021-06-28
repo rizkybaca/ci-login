@@ -7,11 +7,12 @@ class Admin extends CI_Controller
 	{
 		parent::__construct();
 		is_logged_in();
-		$data['user']=$this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		
 	}
 
 	public function index()
 	{
+		$data['user']=$this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['title']='Dashboard';
 		
 		$this->load->view('templates/header', $data);
@@ -23,6 +24,7 @@ class Admin extends CI_Controller
 
 	public function role()
 	{
+		$data['user']=$this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['title']='Role';
 		$data['role']=$this->db->get('user_role')->result_array();
 		
@@ -36,6 +38,7 @@ class Admin extends CI_Controller
 
 	public function roleaccess($role_id)
 	{
+		$data['user']=$this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['title']='Role Access';
 		$data['role']=$this->db->get_where('user_role', ['id'=>$role_id])->row_array();
 		
@@ -50,6 +53,7 @@ class Admin extends CI_Controller
 
 	public function changeaccess()
 	{
+		$data['user']=$this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$menu_id=$this->input->post('menuId');
 		$role_id=$this->input->post('roleId');
 

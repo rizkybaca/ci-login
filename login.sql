@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Jun 2021 pada 22.13
+-- Waktu pembuatan: 29 Jun 2021 pada 01.31
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 7.4.20
 
@@ -43,7 +43,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `image`, `role_id`, `is_active`, `date_created`) VALUES
-(1, 'Rizky Nur', 'rizky.nur@gmail.com', '$2y$10$6GwpKKn92vlbR3Zn7MjJxuylXpONVuzG7J8haAhPlFNSQ/gzvSAE6', 'default.jpg', 1, 1, 1624792594),
+(1, 'Rizky Nur', 'rizky.nur@gmail.com', '$2y$10$dZcNJUNwvrtW97FJ2/sf7ebPpvUKnxzgZ2aYB3.gcUMBCMSSMNoga', '183200.jpg', 1, 1, 1624792594),
 (2, 'Raadiputra', 'ra.adiputra@gmail.com', '$2y$10$NM5F4HLEiTNOO2VJ3bKE/ONkIYN8hs9LO6XV5ggJ7z.AraIDp1Eea', 'default.jpg', 2, 1, 1624793155);
 
 -- --------------------------------------------------------
@@ -66,7 +66,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
 (2, 1, 2),
 (3, 2, 2),
-(4, 1, 3);
+(8, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -131,7 +131,9 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (2, 2, 'My Profile', 'user', 'fas fa-fw fa-user', 1),
 (3, 2, 'Edit Profile', 'user/edit', 'fas fa-fw fa-user-edit', 1),
 (4, 3, 'Menu Management', 'menu', 'fas fa-fw fa-folder', 1),
-(5, 3, 'Submenu Management', 'menu/submenu', 'fas fa-fw fa-folder-open', 1);
+(5, 3, 'Submenu Management', 'menu/submenu', 'fas fa-fw fa-folder-open', 1),
+(7, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1),
+(8, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1);
 
 --
 -- Indexes for dumped tables
@@ -181,7 +183,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_menu`
@@ -199,7 +201,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
