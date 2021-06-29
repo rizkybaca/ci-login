@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Jun 2021 pada 01.31
+-- Waktu pembuatan: 29 Jun 2021 pada 03.33
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 7.4.20
 
@@ -44,7 +44,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `image`, `role_id`, `is_active`, `date_created`) VALUES
 (1, 'Rizky Nur', 'rizky.nur@gmail.com', '$2y$10$dZcNJUNwvrtW97FJ2/sf7ebPpvUKnxzgZ2aYB3.gcUMBCMSSMNoga', '183200.jpg', 1, 1, 1624792594),
-(2, 'Raadiputra', 'ra.adiputra@gmail.com', '$2y$10$NM5F4HLEiTNOO2VJ3bKE/ONkIYN8hs9LO6XV5ggJ7z.AraIDp1Eea', 'default.jpg', 2, 1, 1624793155);
+(2, 'Raadiputra', 'ra.adiputra@gmail.com', '$2y$10$NM5F4HLEiTNOO2VJ3bKE/ONkIYN8hs9LO6XV5ggJ7z.AraIDp1Eea', 'default.jpg', 2, 1, 1624793155),
+(3, 'Ana', 'a.na@gmail.com', '$2y$10$oAVOG9R1mH1Q8ES8sSefc.3bcx.UV6xgryij9N0QaGJuiFnX8RBzS', 'default.jpg', 2, 0, 1624923747),
+(4, 'Baca', 'bacaan.rizky@gmail.com', '$2y$10$0aAycz7cR1zr4kuQ7b72julPJ1U1SlhyR3Tne5B324M64t.vZ44AW', 'default.jpg', 2, 1, 1624926303);
 
 -- --------------------------------------------------------
 
@@ -135,6 +137,27 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (7, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1),
 (8, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user_token`
+--
+
+CREATE TABLE `user_token` (
+  `id` int(11) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `token` varchar(128) NOT NULL,
+  `date_created` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user_token`
+--
+
+INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
+(2, 'bacaan.rizky@gmail.com', '90tY8zRaYauMY+wPrCWVmY321eGZM29znWPOPFbFag8=', 1624928843),
+(3, 'bacaan.rizky@gmail.com', 'D2BBe9/KoJ1CkWamQtAvjs7Cd9hJL2BHR0rou6/ov2A=', 1624930305);
+
 --
 -- Indexes for dumped tables
 --
@@ -170,6 +193,12 @@ ALTER TABLE `user_sub_menu`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `user_token`
+--
+ALTER TABLE `user_token`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -177,7 +206,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_access_menu`
@@ -202,6 +231,12 @@ ALTER TABLE `user_role`
 --
 ALTER TABLE `user_sub_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `user_token`
+--
+ALTER TABLE `user_token`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
